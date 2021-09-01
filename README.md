@@ -30,7 +30,7 @@
   * 点击书籍图片弹出对书籍信息进行修改表单  
    ![Image](https://raw.githubusercontent.com/Black-Polaris/Image/main/s5.png)
    
-  * 点击书架页面中大大的加*+*号进入添加信息表单，包括对图片进行上传  
+  * 点击书架页面中大大的加+号进入添加信息表单，包括对图片进行上传  
    ![Image](https://raw.githubusercontent.com/Black-Polaris/Image/main/s6.png)
    
   * 在书架上方的输入框中可以实现通过*作者名或者书名*进行模糊搜索  
@@ -42,7 +42,7 @@
   * 点击个人博客模块 显示个人Blog信息  
    ![Image](https://raw.githubusercontent.com/Black-Polaris/Image/main/s9.png)
    
-  * 点击上方*添加博客*按钮进入Blog编辑页面  
+  * 点击上方***添加博客***按钮进入Blog编辑页面  
    ![Image](https://raw.githubusercontent.com/Black-Polaris/Image/main/s10.png)
    
   * 点击博客列表中的某一个博客，可以进入到博客的详细内容显示  
