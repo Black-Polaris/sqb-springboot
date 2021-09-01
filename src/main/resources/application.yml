@@ -1,0 +1,17 @@
+server:
+    port: 8082
+mybatis:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.example.entity
+pagehelper:
+    helperDialect: mysql
+    params: count=countSql
+    reasonable: true
+    supportMethodsArguments: true
+spring:
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/vs?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 123456
+

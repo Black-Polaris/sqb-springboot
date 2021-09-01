@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BookMapper">
+    <resultMap id="BookMap" type="Book">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="cover" property="cover" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+        <result column="date" property="date" jdbcType="VARCHAR"/>
+        <result column="press" property="press" jdbcType="VARCHAR"/>
+        <result column="abs" property="abs" jdbcType="VARCHAR"/>
+        <result column="cId" property="cId" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <insert id="save">
+        insert into book (id,cover,title,author,date,press,abs,cId)
+        values (#{id},#{cover},#{title},#{author},#{date},#{press},#{abs},#{cId})
+        on duplicate key update
+        cover = #{cover},title = #{title},author = #{author},date= #{date},press = #{press},
+        abs = #{abs},cId = #{cId}
+    </insert>
+    <delete id="deleteById">
+        delete from book where id = #{id}
+    </delete>
+    <select id="findAllByCategory" resultMap="BookMap">
+        select *
+        from book
+        where cid = #{cId}
+    </select>
+    <select id="findAllByTitleLikeOrAuthorLike" resultMap="BookMap">
+        select *
+        from book
+        where title like concat('%',#{keywords},'%') or author like concat('%',#{keywords},'%')
+    </select>
+    <select id="findAll" resultMap="BookMap">
+        select * from book
+    </select>
+</mapper>

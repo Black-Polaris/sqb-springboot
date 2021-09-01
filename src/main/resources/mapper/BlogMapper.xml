@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BlogMapper">
+    <resultMap id="BlogMap" type="Blog">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="article_title" property="article_title" jdbcType="VARCHAR"/>
+        <result column="article_content_md" property="article_content_md" jdbcType="LONGVARCHAR"/>
+        <result column="article_content_html" property="article_content_html" jdbcType="LONGVARCHAR"/>
+        <result column="article_abstract" property="article_abstract" jdbcType="VARCHAR"/>
+        <result column="article_date" property="article_date" jdbcType="DATE"/>
+    </resultMap>
+    <insert id="save">
+        insert into blog (id,article_title,article_content_md,article_content_html,article_abstract,article_date)
+        values (#{id},#{article_title},#{article_content_md},#{article_content_html},#{article_abstract},#{article_date})
+        on duplicate key update
+         article_title = #{article_title},article_content_md = #{article_content_md},article_content_html = #{article_content_html},
+         article_abstract = #{article_abstract},article_date = #{article_date}
+    </insert>
+    <select id="list" resultMap="BlogMap">
+        select * from blog
+    </select>
+    <select id="findById" resultMap="BlogMap">
+        select * from blog where id = #{id}
+    </select>
+
+
+</mapper>
